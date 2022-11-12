@@ -2,9 +2,20 @@
 
 gRPC materials for Taste of IT 2022 talk
 
+# Requirements
+
+* .NET SDK (I used version 6)
+* Python 3 with the venv module installed.
+
 # Project Setup
 
+Reset everything with helper script: `./helper 999`
+
 ## .NET gRPC Service
+
+### Step 1.01
+
+Helper script: `./helper.sh 101`
 
 Create root folder for the projects:
 
@@ -35,6 +46,10 @@ cd GrpcGreeterService
 dotnet build
 ```
 
+### Step 1.02
+
+Helper script: `./helper.sh 102`
+
 Update Protos/greet.proto, extending it with a couple of new messages:
 
 ```protobuf
@@ -48,6 +63,10 @@ Build again:
 ```bash
 dotnet build
 ```
+
+### Step 1.03
+
+Helper script: `./helper.sh 103`
 
 Add a new method using the new messages:
 
@@ -65,6 +84,10 @@ Build again:
 ```bash
 dotnet build
 ```
+
+### Step 1.04
+
+Helper script: `./helper.sh 104`
 
 Open GreeterService.cs and add a new method using the new messages:
 
@@ -84,7 +107,18 @@ Build again:
 dotnet build
 ```
 
+### Manual Step
+
+Run the server:
+
+```bash
+dotnet run
+```
 ## .NET gRPC Client
+
+### Step 2.01
+
+Helper script: `./helper.sh 201`
 
 Change to the project root (src):
 
@@ -98,6 +132,10 @@ Create the client project:
 dotnet new console -o GrpcGreeterClient
 ```
 
+### Step 2.02
+
+Helper script: `./helper.sh 202`
+
 Switch to the folder and add dependencies:
 
 ```bash
@@ -107,6 +145,10 @@ dotnet add package Grpc.Net.Client
 dotnet add package Google.Protobuf
 dotnet add package Grpc.Tools
 ```
+
+### Step 2.03
+
+Helper script: `./helper.sh 203`
 
 Create a Protos folder, then copy the .proto file from the service project:
 
@@ -122,6 +164,10 @@ Update the namespace inside the greet.proto file to the project's namespace:
 option csharp_namespace = "GrpcGreeterClient";
 ```
 
+### Step 2.04
+
+Helper script: `./helper.sh 204`
+
 Edit the GrpcGreeterClient.csproj project file and add an item group with a `<Protobuf>` element that refers to the greet.proto file:
 
 ```xml
@@ -135,6 +181,10 @@ Build the client to generate the types:
 ```bash
 dotnet build
 ```
+
+### Step 2.05
+
+Helper script: `./helper.sh 205`
 
 Replace the contents of Program.cs with this:
 
@@ -153,6 +203,8 @@ Console.WriteLine("Greeting: " + reply.Message);
 Console.WriteLine("Press any key to exit...");
 ```
 
+### Manual Step
+
 Run the client:
 
 ```bash
@@ -168,6 +220,10 @@ Press any key to exit...
 
 ## Python gRPC Client
 
+### Step 3.01
+
+Helper script: `./helper.sh 301`
+
 Create a virtual Python environment:
 
 ```bash
@@ -179,6 +235,10 @@ cd grpc_env
 
 source bin/activate
 ```
+
+### Step 3.02
+
+Helper script: `./helper.sh 302`
 
 Create requirements.txt file:
 
@@ -193,6 +253,10 @@ pip install -r requirements.txt
 
 ```
 
+### Step 3.03
+
+Helper script: `./helper.sh 303`
+
 Create project folders:
 
 ```bash
@@ -205,12 +269,20 @@ mkdir protobufs
 mkdir src
 ```
 
+### Step 3.04
+
+Helper script: `./helper.sh 304`
+
 Copy the protocol buffer file from the server project:
 
 ```bash
 cp ../../GrpcGreeterService/Protos/greet.proto protobufs/
 
 ```
+
+### Step 3.05
+
+Helper script: `./helper.sh 305`
 
 Generate Python code:
 
@@ -224,6 +296,10 @@ This generates two files:
 
 * greet_pb2_grpc.py
 * greet_pb2.py
+
+### Step 3.06
+
+Helper script: `./helper.sh 306`
 
 Create a client.py file with the following contents:
 
@@ -252,6 +328,8 @@ print(hello_result.message)
 print(goodbye_result.message)
 
 ```
+
+### Manual Step
 
 Run the client.py file:
 
