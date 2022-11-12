@@ -9,6 +9,8 @@ gRPC materials for Taste of IT 2022 talk
 
 # Project Setup
 
+All instructions assume a Linux environment.  It shouldn't be hard to adapt for others, though.
+
 Reset everything with helper script: `./helper 999`
 
 ## .NET gRPC Service
