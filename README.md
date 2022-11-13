@@ -199,10 +199,12 @@ using GrpcGreeterClient;
 using var channel = GrpcChannel.ForAddress("http://localhost:6000");
 
 var client = new Greeter.GreeterClient(channel);
-var reply = await client.SayHelloAsync(new HelloRequest { Name = "GreeterClient" });
 
-Console.WriteLine("Greeting: " + reply.Message);
-Console.WriteLine("Press any key to exit...");
+var helloReply = await client.SayHelloAsync(new HelloRequest { Name = "GreeterClient" });
+Console.WriteLine("Greeting: " + helloReply.Message);
+
+var goodbyeReply = await client.SayGoodbyeAsync(new GoodbyeRequest { Name = "GreeterClient" });
+Console.WriteLine("Greeting: " + goodbyeReply.Message);
 ```
 
 ### Manual Step
