@@ -1,0 +1,41 @@
+.background-box-black {
+	background-color: rgba(0, 0, 0, 0.8);
+	color: #fff;
+	padding: 20px;
+}
+
+.green-bold {
+	color: green;
+	font-weight: bold;
+}
+
+.red-bold {
+	color: red;
+	font-weight: bold;
+}
+
+.blue-bold {
+	color: blue;
+	font-weight: bold;
+}
+
+.simple-quote {
+	background-color: rgba(0, 0, 0, 0.8);
+	font-style: italic;
+}
+
+.force-italic {
+	font-style: italic;
+}
+
+.slide-header {
+	font-size: small;
+}
+
+.slide-header-part1 {
+	color: blue;
+}
+
+.slide-header-part2 {
+	color: orange;
+}

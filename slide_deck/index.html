@@ -1,0 +1,242 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>gRPC: Remote Procedure Calls for a More Civilized Age</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		<link rel="stylesheet" href="custom/css/custom.css">
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section id="slide_welcome">
+					<img src="custom/img/splash-image.png" />
+				</section>
+				<section id="slide_overview">
+					<br>
+					<img src="custom/img/grpc_logo.png" />
+
+					<ul>
+						<li>Remote Procedure Call framework</li>
+						<li>Leverages newer web technologies</li>
+					</ul>
+				</section>
+
+				<section id="slide_what_is_rpc">
+					<h2>What is RPC?</h2>
+
+					<img src="custom/img/remote_procedure_call.jpg" />
+				</section>
+
+				<section id="slide_how_is_grpc_different">
+					<h2>How is gRPC different?</h2>
+
+					<ul>
+						<li>Network transport method</li>
+						<li>Interface Definition</li>
+					</ul>
+				</section>
+
+				<section id="slide_history">
+					<h2>History</h2>
+					<p>Internal project -> "Stubby"</p>
+
+					<p>2015 -> Open-source, "gRPC"</p>
+				</section>
+
+				<section id="slide_protocol_buffers">
+					<h2>Protocol Buffers</h2>
+
+					<img src="custom/img/protocol_buffers.png" />
+
+					<br>
+
+					<ul>
+						<li>IDL</li>
+						<li>Binary format</li>
+						<li>Consistency</li>
+					</ul>
+				</section>
+
+				<section>
+					<section id="slide_features">
+						<h2>Features</h2>
+
+						<img src="custom/img/capabilities.png" />
+					</section>
+
+					<section id="slide_network_transport">
+						<h2>Network Transport</h2>
+						<p>HTTP/2</p>
+						<ul>
+							<li>Decreased latency</li>
+							<li>Server Push</li>
+							<li>Multiplexing</li>
+						</ul>
+					</section>
+
+					<section id="slide_authentication_1" data-auto-animate>
+						<h2>Authentication</h2>
+
+						<ul>
+							<li>SSL/TLS</li>
+							<li>ALTS</li>
+							<li>Token-based Authentication/OAUTH2</li>
+						</ul>
+					</section>
+
+					<section id="slide_authentication_2" data-auto-animate>
+						<h2>Authentication</h2>
+
+						<h3>Credential Types</h3>
+
+						<ul>
+							<li>Channel</li>
+							<li>Call</li>
+						</ul>
+					</section>
+
+					<section id="slide_streaming_flow_control">
+						<h2>Streaming and Flow Control</h2>
+
+						<ul>
+							<li>Supports bidirectional streaming</li>
+							<li>Allows throttling and allocation</li>
+						</ul>
+					</section>
+
+					<section id="slide_cancellation">
+						<h2>Cancellation</h2>
+					</section>
+
+					<section id="slide_deadlines_and_timeouts">
+						<h2>Deadlines and Timeouts</h2>
+					</section>
+				</section>
+
+				<section id="slide_comparison">
+					<h2>Comparison</h2>
+
+					<ul>
+						<li>SOAP</li>
+						<li>REST</li>
+						<li>GraphQL</li>
+						<li>gRPC</li>
+					</ul>
+				</section>
+
+				<section id="slide_weaknesses">
+					<h2>Weaknesses</h2>
+
+					<ul>
+						<li>Maturity</li>
+						<li>Browser support</li>
+						<li>Binary format</li>
+						<li>Learning curve</li>
+					</ul>
+				</section>
+
+				<section id="slide_when_to_use_it">
+					<h2>When To Use It</h2>
+
+					<ul>
+						<li>Real-time / efficiency</li>
+						<li>Multi-language</li>
+						<li>Internal API and Last Mile</li>
+					</ul>
+				</section>
+
+				<section id="slide_adoption">
+					<h2>Adoption</h2>
+
+					<p>Uber | Square | Netflix | IBM | CoreOS | Docker | Cisco | Juniper Networks | Spotify | Zalando | Dropbox</p>
+
+					<p>And Google (of course!)</p>
+				</section>
+
+				<section id="slide_demo">
+					<section>
+						<h2>Tech Demo</h2>
+					</section>
+					<section>
+						<h2>.NET Server</h2>
+					</section>
+					<section>
+						<h2>.NET Client</h2>
+					</section>
+					<section>
+						<h2>Python Client</h2>
+					</section>
+				</section>
+
+				<section id="slide_thank_your">
+					<h1>Thank You</h1>
+
+					<table>
+						<tr>
+							<td>Email:</td>
+							<td>jim.carr@devtoprd.com</td>
+						</tr>
+						<tr>
+							<td>Demo Project Repo:</td>
+							<td><a href="https://github.com/jfcarr/grpc_taste_of_it">https://github.com/jfcarr/grpc_taste_of_it</a></td>
+						</tr>
+					</table>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				transition: 'convex',
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+			});
+
+			for (var slide of document.getElementsByTagName('section')) {
+				if (!(slide.getAttribute('data-background') || slide.getAttribute('data-background-video') || slide.getAttribute('data-background-iframe') || slide.getAttribute('data-background-image'))) {
+					slide.setAttribute('data-background-image', 'custom/img/default-background.png');
+				}
+			}
+
+			for (var slide of document.getElementsByTagName('section')) {
+				var count = 0;
+				for (var childElement of slide.getElementsByTagName('section')) {
+					count++;
+				}
+
+				if (count == 0) {
+					// slide.innerHTML = '<span class="slide-header"></span>' + slide.innerHTML;
+					slide.innerHTML =
+						'<span class="slide-header">' +
+						'<span class="slide-header-part1">TECHNOLOGY FIRST</span>' +
+						' | ' +
+						'<span class="slide-header-part2">Taste of IT Conference</span>' +
+						'</span>' +
+						slide.innerHTML;
+				}
+			}
+		</script>
+	</body>
+
+</html>
