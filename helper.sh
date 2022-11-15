@@ -22,7 +22,6 @@ if (( $# != 1 )); then
 
 	echo ''
 
-	echo '  300 - Scaffold entire Python project'
 	echo '  301 - Create Python virtual environment'
 	echo '  302 - Install dependencies'
 	echo '  303 - Create project folders'
