@@ -371,11 +371,11 @@ channel = grpc.insecure_channel("localhost:6000")
 client = greet_pb2_grpc.GreeterStub(channel)
 
 hello_request = HelloRequest (
-	name = "Jim"
+	name = "GreeterClient"
 )
 
 goodbye_request = GoodbyeRequest (
-	name = "Jim"
+	name = "GreeterClient"
 )
 
 hello_result = client.SayHello(hello_request)
@@ -398,6 +398,6 @@ Windows | `powershell -ExecutionPolicy ByPass -file run_python_client.ps1`
 Results:
 
 ```
-Hello Jim
-Goodbye Jim
+Hello GreeterClient
+Goodbye GreeterClient
 ```
