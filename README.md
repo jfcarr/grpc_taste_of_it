@@ -17,7 +17,10 @@ Reset everything with helper script: `./helper 999`
 
 ### Step 1.01
 
-Helper script: `./helper.sh 101`
+Operating System | Helper Script
+---------|----------
+Linux | `./helper.sh 101`
+Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 101`
 
 Create root folder for the projects:
 
@@ -50,7 +53,10 @@ dotnet build
 
 ### Step 1.02
 
-Helper script: `./helper.sh 102`
+Operating System | Helper Script
+---------|----------
+Linux | `./helper.sh 102`
+Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 102`
 
 Update Protos/greet.proto, extending it with a couple of new messages:
 
@@ -68,7 +74,10 @@ dotnet build
 
 ### Step 1.03
 
-Helper script: `./helper.sh 103`
+Operating System | Helper Script
+---------|----------
+Linux | `./helper.sh 103`
+Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 103`
 
 Add a new method using the new messages:
 
@@ -89,7 +98,10 @@ dotnet build
 
 ### Step 1.04
 
-Helper script: `./helper.sh 104`
+Operating System | Helper Script
+---------|----------
+Linux | `./helper.sh 104`
+Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 104`
 
 Open GreeterService.cs and add a new method using the new messages:
 
@@ -113,14 +125,19 @@ dotnet build
 
 Run the server:
 
-```bash
-dotnet run
-```
+Operating System | Server Script
+---------|----------
+Linux | `./run_server.sh`
+Windows | `powershell -ExecutionPolicy ByPass -file run_server.ps1`
+
 ## .NET gRPC Client
 
 ### Step 2.01
 
-Helper script: `./helper.sh 201`
+Operating System | Helper Script
+---------|----------
+Linux | `./helper.sh 201`
+Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 201`
 
 Change to the project root (src):
 
@@ -136,7 +153,10 @@ dotnet new console -o GrpcGreeterClient
 
 ### Step 2.02
 
-Helper script: `./helper.sh 202`
+Operating System | Helper Script
+---------|----------
+Linux | `./helper.sh 202`
+Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 202`
 
 Switch to the folder and add dependencies:
 
@@ -150,7 +170,10 @@ dotnet add package Grpc.Tools
 
 ### Step 2.03
 
-Helper script: `./helper.sh 203`
+Operating System | Helper Script
+---------|----------
+Linux | `./helper.sh 203`
+Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 203`
 
 Create a Protos folder, then copy the .proto file from the service project:
 
@@ -168,7 +191,10 @@ option csharp_namespace = "GrpcGreeterClient";
 
 ### Step 2.04
 
-Helper script: `./helper.sh 204`
+Operating System | Helper Script
+---------|----------
+Linux | `./helper.sh 204`
+Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 204`
 
 Edit the GrpcGreeterClient.csproj project file and add an item group with a `<Protobuf>` element that refers to the greet.proto file:
 
@@ -186,7 +212,10 @@ dotnet build
 
 ### Step 2.05
 
-Helper script: `./helper.sh 205`
+Operating System | Helper Script
+---------|----------
+Linux | `./helper.sh 205`
+Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 205`
 
 Replace the contents of Program.cs with this:
 
@@ -211,9 +240,10 @@ Console.WriteLine("Greeting: " + goodbyeReply.Message);
 
 Run the client:
 
-```bash
-dotnet run
-```
+Operating System | Server Script
+---------|----------
+Linux | `./run_dotnet_client.sh`
+Windows | `powershell -ExecutionPolicy ByPass -file run_dotnet_client.ps1`
 
 You should see this:
 
@@ -226,7 +256,10 @@ Press any key to exit...
 
 ### Step 3.01
 
-Helper script: `./helper.sh 301`
+Operating System | Helper Script
+---------|----------
+Linux | `./helper.sh 301`
+Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 301`
 
 Create a virtual Python environment:
 
@@ -242,7 +275,10 @@ source bin/activate
 
 ### Step 3.02
 
-Helper script: `./helper.sh 302`
+Operating System | Helper Script
+---------|----------
+Linux | `./helper.sh 302`
+Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 302`
 
 Create requirements.txt file:
 
@@ -259,7 +295,10 @@ pip install -r requirements.txt
 
 ### Step 3.03
 
-Helper script: `./helper.sh 303`
+Operating System | Helper Script
+---------|----------
+Linux | `./helper.sh 303`
+Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 303`
 
 Create project folders:
 
@@ -275,7 +314,10 @@ mkdir src
 
 ### Step 3.04
 
-Helper script: `./helper.sh 304`
+Operating System | Helper Script
+---------|----------
+Linux | `./helper.sh 304`
+Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 304`
 
 Copy the protocol buffer file from the server project:
 
@@ -286,7 +328,10 @@ cp ../../GrpcGreeterService/Protos/greet.proto protobufs/
 
 ### Step 3.05
 
-Helper script: `./helper.sh 305`
+Operating System | Helper Script
+---------|----------
+Linux | `./helper.sh 305`
+Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 305`
 
 Generate Python code:
 
@@ -303,7 +348,10 @@ This generates two files:
 
 ### Step 3.06
 
-Helper script: `./helper.sh 306`
+Operating System | Helper Script
+---------|----------
+Linux | `./helper.sh 306`
+Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 306`
 
 Create a client.py file with the following contents:
 
@@ -335,11 +383,12 @@ print(goodbye_result.message)
 
 ### Manual Step
 
-Run the client.py file:
+Run the Python client:
 
-```bash
-python client.py
-```
+Operating System | Server Script
+---------|----------
+Linux | `./run_python_client.sh`
+Windows | `powershell -ExecutionPolicy ByPass -file run_python_client.ps1`
 
 Results:
 
