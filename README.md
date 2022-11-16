@@ -9,9 +9,9 @@ gRPC materials for Taste of IT 2022 talk
 
 # Project Setup
 
-Detailed instructions assume a Linux environment.  There are helper scripts for Linux _and_ Windows.
+Detailed instructions assume a Linux environment.  There are helper scripts for Linux _and_ Windows.  Each step has a complete description of the changes to manually apply, and also instructions for running the helper script, if you want to save time.
 
-Reset everything with helper script:
+First, reset everything with helper script:
 
 Operating System | Helper Script
 ---------|----------
@@ -20,12 +20,7 @@ Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 999`
 
 ## .NET gRPC Service
 
-### Step 1.01
-
-Operating System | Helper Script
----------|----------
-Linux | `./helper.sh 101`
-Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 101`
+### Step 1.01 - Create Server Project
 
 Create root folder for the projects:
 
@@ -55,13 +50,12 @@ cd GrpcGreeterService
 
 dotnet build
 ```
-
-### Step 1.02
-
 Operating System | Helper Script
 ---------|----------
-Linux | `./helper.sh 102`
-Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 102`
+Linux | `./helper.sh 101`
+Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 101`
+
+### Step 1.02 - New Messages in Protobuf
 
 Update Protos/greet.proto, extending it with a couple of new messages:
 
@@ -77,12 +71,12 @@ Build again:
 dotnet build
 ```
 
-### Step 1.03
-
 Operating System | Helper Script
 ---------|----------
-Linux | `./helper.sh 103`
-Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 103`
+Linux | `./helper.sh 102`
+Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 102`
+
+### Step 1.03 - New Method in Protobuf
 
 Add a new method using the new messages:
 
@@ -101,12 +95,12 @@ Build again:
 dotnet build
 ```
 
-### Step 1.04
-
 Operating System | Helper Script
 ---------|----------
-Linux | `./helper.sh 104`
-Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 104`
+Linux | `./helper.sh 103`
+Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 103`
+
+### Step 1.04 - Implement the New Method
 
 Open GreeterService.cs and add a new method using the new messages:
 
@@ -126,7 +120,12 @@ Build again:
 dotnet build
 ```
 
-### Manual Step
+Operating System | Helper Script
+---------|----------
+Linux | `./helper.sh 104`
+Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 104`
+
+### Manual Step - Run the Server
 
 Run the server:
 
@@ -137,12 +136,7 @@ Windows | `powershell -ExecutionPolicy ByPass -file run_server.ps1`
 
 ## .NET gRPC Client
 
-### Step 2.01
-
-Operating System | Helper Script
----------|----------
-Linux | `./helper.sh 201`
-Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 201`
+### Step 2.01 - Create .NET Client Project
 
 Change to the project root (src):
 
@@ -156,12 +150,12 @@ Create the client project:
 dotnet new console -o GrpcGreeterClient
 ```
 
-### Step 2.02
-
 Operating System | Helper Script
 ---------|----------
-Linux | `./helper.sh 202`
-Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 202`
+Linux | `./helper.sh 201`
+Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 201`
+
+### Step 2.02 - Add Dependencies
 
 Switch to the folder and add dependencies:
 
@@ -173,12 +167,12 @@ dotnet add package Google.Protobuf
 dotnet add package Grpc.Tools
 ```
 
-### Step 2.03
-
 Operating System | Helper Script
 ---------|----------
-Linux | `./helper.sh 203`
-Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 203`
+Linux | `./helper.sh 202`
+Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 202`
+
+### Step 2.03 - Copy and Update the Protobuf File
 
 Create a Protos folder, then copy the .proto file from the service project:
 
@@ -194,12 +188,12 @@ Update the namespace inside the greet.proto file to the project's namespace:
 option csharp_namespace = "GrpcGreeterClient";
 ```
 
-### Step 2.04
-
 Operating System | Helper Script
 ---------|----------
-Linux | `./helper.sh 204`
-Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 204`
+Linux | `./helper.sh 203`
+Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 203`
+
+### Step 2.04 - Add Protobuf Entry to Project File
 
 Edit the GrpcGreeterClient.csproj project file and add an item group with a `<Protobuf>` element that refers to the greet.proto file:
 
@@ -215,12 +209,12 @@ Build the client to generate the types:
 dotnet build
 ```
 
-### Step 2.05
-
 Operating System | Helper Script
 ---------|----------
-Linux | `./helper.sh 205`
-Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 205`
+Linux | `./helper.sh 204`
+Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 204`
+
+### Step 2.05 - Update Program.cs
 
 Replace the contents of Program.cs with this:
 
@@ -241,7 +235,12 @@ var goodbyeReply = await client.SayGoodbyeAsync(new GoodbyeRequest { Name = "Gre
 Console.WriteLine("Greeting: " + goodbyeReply.Message);
 ```
 
-### Manual Step
+Operating System | Helper Script
+---------|----------
+Linux | `./helper.sh 205`
+Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 205`
+
+### Manual Step - Run the .NET Client
 
 Run the client:
 
@@ -259,12 +258,7 @@ Press any key to exit...
 
 ## Python gRPC Client
 
-### Step 3.01
-
-Operating System | Helper Script
----------|----------
-Linux | `./helper.sh 301`
-Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 301`
+### Step 3.01 - Create Virtual Python Environment
 
 Create a virtual Python environment:
 
@@ -278,12 +272,12 @@ cd grpc_env
 source bin/activate
 ```
 
-### Step 3.02
-
 Operating System | Helper Script
 ---------|----------
-Linux | `./helper.sh 302`
-Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 302`
+Linux | `./helper.sh 301`
+Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 301`
+
+### Step 3.02 - Add Dependencies
 
 Create requirements.txt file:
 
@@ -298,12 +292,12 @@ pip install -r requirements.txt
 
 ```
 
-### Step 3.03
-
 Operating System | Helper Script
 ---------|----------
-Linux | `./helper.sh 303`
-Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 303`
+Linux | `./helper.sh 302`
+Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 302`
+
+### Step 3.03 - Create Project Folders
 
 Create project folders:
 
@@ -317,12 +311,12 @@ mkdir protobufs
 mkdir src
 ```
 
-### Step 3.04
-
 Operating System | Helper Script
 ---------|----------
-Linux | `./helper.sh 304`
-Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 304`
+Linux | `./helper.sh 303`
+Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 303`
+
+### Step 3.04 - Copy Protobuf File
 
 Copy the protocol buffer file from the server project:
 
@@ -331,12 +325,12 @@ cp ../../GrpcGreeterService/Protos/greet.proto protobufs/
 
 ```
 
-### Step 3.05
-
 Operating System | Helper Script
 ---------|----------
-Linux | `./helper.sh 305`
-Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 305`
+Linux | `./helper.sh 304`
+Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 304`
+
+### Step 3.05 - Generate Python Code
 
 Generate Python code:
 
@@ -351,12 +345,12 @@ This generates two files:
 * greet_pb2_grpc.py
 * greet_pb2.py
 
-### Step 3.06
-
 Operating System | Helper Script
 ---------|----------
-Linux | `./helper.sh 306`
-Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 306`
+Linux | `./helper.sh 305`
+Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 305`
+
+### Step 3.06 - Create Client Script
 
 Create a client.py file with the following contents:
 
@@ -386,7 +380,12 @@ print(goodbye_result.message)
 
 ```
 
-### Manual Step
+Operating System | Helper Script
+---------|----------
+Linux | `./helper.sh 306`
+Windows | `powershell -ExecutionPolicy ByPass -file helper.ps1 306`
+
+### Manual Step - Run the Python Client
 
 Run the Python client:
 
